@@ -1,31 +1,24 @@
+require 'net/http'
+require 'json'
+
 class HikingProjectCli::Scraper
 
     def self.get_trails_from_api
+        
         #returns an array of trail hashes
-        trails = []
+        url = "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=#{ENV['HIKINGPROJECT_API_KEY']}"
+        uri = URI(url)
+        response = Net::HTTP.get(uri)
+        api_trails = JSON.parse(response)
 
-        trail1 = {}
-        trail1[:name] = "Trail A"
-        trail1[:length] = 10
-        trail1[:summary] = "Trail A summary"
-        trail1[:url] = "http://url1.com"
-        trails << trail1
-
-        trail2 = {}
-        trail2[:name] = "Trail B"
-        trail2[:length] = 15
-        trail2[:summary] = "Trail B summary"
-        trail2[:url] = "http://url2.com"
-        trails << trail2
-
-        trail3 = {}
-        trail3[:name] = "Trail C"
-        trail3[:length] = 25
-        trail3[:summary] = "Trail C summary"
-        trail3[:url] = "http://url3.com"
-        trails << trail3
-
-        trails
+        api_trails["trails"].map {|trail|
+            {
+                :name => trail["name"],
+                :length => trail["length"],
+                :summary => trail["summary"],
+                :url => trail["url"]
+            }   
+        }
     end
 
     def self.scrape_trail_detail(trail_url)

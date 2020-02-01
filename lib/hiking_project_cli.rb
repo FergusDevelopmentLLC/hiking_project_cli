@@ -1,3 +1,5 @@
+require 'dotenv/load'
+
 require "./lib/hiking_project_cli/version"
 require "./lib/hiking_project_cli/cli"
 require "./lib/hiking_project_cli/scraper"
