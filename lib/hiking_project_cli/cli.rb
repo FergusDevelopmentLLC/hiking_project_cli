@@ -16,13 +16,16 @@ class HikingProjectCli::CLI
         while coord_input == ""
             coord_input = gets.strip
         end
-
-        list_trails
+        
+        #lat,lng
+        list_trails(coord_input)
     end
 
-    def list_trails
-        
-        trail_hashes_from_api = HikingProjectCli::Scraper.get_trails_from_api
+    def list_trails(coords_input)
+        coords_input = coords_input.gsub(" ", "")
+        coords_array = coords_input.split(",")
+        coords_qs = "lat=#{coords_array[0]}&lon=#{coords_array[1]}"
+        trail_hashes_from_api = HikingProjectCli::Scraper.get_trails_from_api(coords_qs)
         trails = HikingProjectCli::Trail.create_from_collection(trail_hashes_from_api)
         
         puts "Trails for latitude: x longitude: y"
