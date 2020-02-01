@@ -51,16 +51,20 @@ class HikingProjectCli::CLI
         elsif input == "exit"
             goodbye
         else
-            show_full_description
+            #get selected trail.url
+            selected_trail = HikingProjectCli::Trail.all[input.to_i - 1]
+            show_full_description(selected_trail)
         end
     end
 
-    def show_full_description
+    def show_full_description(trail)
         #display trail full details
+        trail_details_hash = HikingProjectCli::Scraper.scrape_trail_detail(trail.url)
+        trail.add_full_details(trail_details_hash)
         puts "-----------------------------------------------"
-        puts "Features: features1 features1 features1"
-        puts "Overview: overview1 overview1 overview1"
-        puts "Description: description1 description1 description1"
+        puts "Features: #{trail.features}"
+        puts "Overview: #{trail.overview}"
+        puts "Description: #{trail.description}"
         puts "-----------------------------------------------"
         menu
     end

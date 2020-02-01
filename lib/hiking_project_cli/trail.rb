@@ -1,6 +1,6 @@
 class HikingProjectCli::Trail
 
-    attr_accessor :name, :length, :summary
+    attr_accessor :name, :length, :summary, :url, :features, :overview, :description
   
     @@all = []
   
