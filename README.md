@@ -6,6 +6,13 @@ TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
+Need to have an .env file in root with the following
+HIKINGPROJECT_API_KEY=XXX
+or
+set it at terminal
+$ export HIKINGPROJECT_API_KEY=XXX
+https://www.rubyguides.com/2019/01/ruby-environment-variables/
+
 Add this line to your application's Gemfile:
 
 ```ruby
