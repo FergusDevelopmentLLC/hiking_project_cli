@@ -1,3 +1,4 @@
+require "pry"
 class HikingProjectCli::CLI
 
     def call
@@ -20,13 +21,17 @@ class HikingProjectCli::CLI
     end
 
     def list_trails
-        #list trails based on user input
+        
+        trail_hashes_from_api = HikingProjectCli::Scraper.get_trails_from_api
+        trails = HikingProjectCli::Trail.create_from_collection(trail_hashes_from_api)
+        
         puts "Trails for latitude: x longitude: y"
         puts "-----------------------------------------------"
-        puts "1 - Trail A name (xxx miles) - Trail A Summary"
-        puts "2 - Trail B name (xxx miles) - Trail A Summary"
-        puts "3 - Trail C name (xxx miles) - Trail A Summary"
+        HikingProjectCli::Trail.all.each.with_index(1) {|trail, index|
+            puts "#{index} - #{trail.name} (#{trail.length.to_s} miles) - #{trail.summary}"
+        }
         puts "-----------------------------------------------"
+        
         menu
     end
 
