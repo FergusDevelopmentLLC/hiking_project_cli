@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/hiking_project_cli'
+
+HikingProjectCli::CLI.new.call
