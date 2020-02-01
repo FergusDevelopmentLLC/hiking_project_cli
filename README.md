@@ -8,11 +8,11 @@ TODO: Delete this and the text above, and describe your gem
 
 Need to have an .env file in root with the following
 HIKINGPROJECT_API_KEY=XXX
+following pattern here with dotenv: https://github.com/Gingertonic/london-spas-cli/blob/master/lib/london_spas/api.rb
 or
 set it at terminal
 $ export HIKINGPROJECT_API_KEY=XXX
 https://www.rubyguides.com/2019/01/ruby-environment-variables/
-following pattern here with dotenv: https://github.com/Gingertonic/london-spas-cli/blob/master/lib/london_spas/api.rb
 
 Add this line to your application's Gemfile:
 
