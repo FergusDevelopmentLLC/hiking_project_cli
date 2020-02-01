@@ -62,9 +62,14 @@ class HikingProjectCli::CLI
         trail_details_hash = HikingProjectCli::Scraper.scrape_trail_detail(trail.url)
         trail.add_full_details(trail_details_hash)
         puts "-----------------------------------------------"
-        puts "Features: #{trail.features}"
-        puts "Overview: #{trail.overview}"
-        puts "Description: #{trail.description}"
+        puts "Features:"
+        puts "#{trail.features}"
+        puts ""
+        puts "Overview:"
+        puts "#{trail.overview}"
+        puts ""
+        puts "Description:"
+        puts "#{trail.description}"
         puts "-----------------------------------------------"
         menu
     end
