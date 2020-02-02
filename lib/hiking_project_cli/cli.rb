@@ -31,7 +31,7 @@ class HikingProjectCli::CLI
         puts "Trails for latitude: x longitude: y"
         puts "-----------------------------------------------"
         HikingProjectCli::Trail.all.each.with_index(1) {|trail, index|
-            puts "#{index} - #{trail.name} (#{trail.length.to_s} miles) - #{trail.summary}"
+            puts "#{index} - #{trail.print_summary}"
         }
         puts "-----------------------------------------------"
         

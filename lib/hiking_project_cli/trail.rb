@@ -28,6 +28,14 @@ class HikingProjectCli::Trail
         @@all = Array.new
     end
 
+    def print_summary
+        if (self.summary != nil && self.summary != "Needs Summary" && self.summary != "")
+            "#{self.name} (#{self.length.to_s} miles) - #{self.summary}"
+        else
+            "#{self.name} (#{self.length.to_s} miles)"
+        end
+    end
+
     def print_full_description
         puts "-----------------------------------------------"
         puts "#{self.name} (#{self.length} miles)"
