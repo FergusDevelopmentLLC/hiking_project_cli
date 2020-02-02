@@ -1,9 +1,13 @@
+require 'net/http'
+require 'json'
+require 'open-uri'
+require 'nokogiri'
 require 'dotenv/load'
 
-require "./lib/hiking_project_cli/version"
-require "./lib/hiking_project_cli/cli"
-require "./lib/hiking_project_cli/scraper"
-require "./lib/hiking_project_cli/trail"
+require_relative "hiking_project_cli/version"
+require_relative "hiking_project_cli/cli"
+require_relative "hiking_project_cli/scraper"
+require_relative "hiking_project_cli/trail"
 
 module HikingProjectCli
   class Error < StandardError; end

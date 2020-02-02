@@ -1,6 +1,4 @@
-require "pry"
 class HikingProjectCli::CLI
-
 
     def call
         #welcome message to the user
@@ -84,10 +82,7 @@ class HikingProjectCli::CLI
     end
 
     def menu
-        # valid inputs
-        # any from the list
-        # or
-        # list, restart, exit
+        # valid inputs: any from the list or list, restart, exit
 
         valid_inputs = HikingProjectCli::Trail.all.each.with_index(1).map {|trail, index| index.to_s}
         valid_inputs = valid_inputs.concat ["restart", "list", "exit"]

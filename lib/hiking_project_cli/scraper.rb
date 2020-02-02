@@ -1,8 +1,3 @@
-require 'net/http'
-require 'json'
-require 'open-uri'
-require 'nokogiri'
-
 class HikingProjectCli::Scraper
 
     def self.get_trails_from_api(coords)
