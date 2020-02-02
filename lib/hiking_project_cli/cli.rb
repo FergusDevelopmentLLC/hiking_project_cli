@@ -6,6 +6,8 @@ class HikingProjectCli::CLI
         #welcome message to the user
         puts "Welcome to the Hiking Project CLI"
         puts "---------------------------------"
+        # puts "Orlando: 28.533819, -81.316097"
+        # puts "only 3: 28.539358, -81.39"
         get_coordinates
     end
 
@@ -49,11 +51,22 @@ class HikingProjectCli::CLI
     end
 
     def menu
+        # valid inputs
+        # any from the list
+        # or
+        # list, restart, exit
+
+        valid_inputs = HikingProjectCli::Trail.all.each.with_index(1).map {|trail, index|
+            index.to_s
+        }
+        valid_inputs = valid_inputs.concat ["restart", "list", "exit"]
+
         puts "Enter the number of the trail you would like more information on, list to relist, restart, or exit."
 
         input = ""
-        while input == ""
+        while input == "" || valid_inputs.include?(input) == false
             input = gets.strip
+            puts "Invalid entry, please enter the number of the trail, list to relist, restart or exit." unless valid_inputs.include?(input)
         end
         
         #allows user to relist trails, choose a trail to show detail, restart, or exit
