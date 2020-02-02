@@ -19,7 +19,17 @@ class HikingProjectCli::Scraper
                 :name => trail["name"],
                 :length => trail["length"],
                 :summary => trail["summary"],
-                :url => trail["url"]
+                :url => trail["url"],
+                :location => trail["location"],
+                :difficulty => trail["difficulty"],
+                :stars => trail["stars"],
+                :ascent => trail["ascent"],
+                :descent => trail["descent"],
+                :high => trail["high"],
+                :low => trail["low"],
+                :conditionStatus => trail["conditionStatus"],
+                :conditionDetails => trail["conditionDetails"],
+                :conditionDate => trail["conditionDate"]
             }   
         }
     end
