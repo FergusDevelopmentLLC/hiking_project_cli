@@ -15,15 +15,34 @@ class HikingProjectCli::CLI
         #get coordinates from user
         puts "Please enter your latitude, longitude"
 
-        coord_input = ""
-        while coord_input == ""
+        coord_input = "" 
+        while coord_input == "" || HikingProjectCli::CLI.is_coord_valid(coord_input) == false
             coord_input = gets.strip
+            if(coord_input == "exit")
+                goodbye
+            end
+            puts "Invalid coordinates. Please enter a valid latitude, longitude within the United States." unless HikingProjectCli::CLI.is_coord_valid(coord_input)
         end
         
         @coords = coord_input
 
         HikingProjectCli::Trail.clear()
         list_trails
+    end
+
+    def self.is_coord_valid(coord_input)
+        if coord_input.match(/\A([-]?[1-9]+|[-]?[1-9]+\d*|[-]?[1-9]+\d*\.\d+),[\s]?([-]?[1-9]+|[-]?[1-9]+\d*|[-]?[1-9]+\d*\.\d+)\z/)
+            #split coord_input into array
+            coord_input = coord_input.gsub(" ", "")
+            coord_input_array = coord_input.split(",")
+            if(coord_input_array[0].to_f.between?(18.91619, 71.3577635769) && coord_input_array[1].to_f.between?(-171.791110603, -66.96466)) 
+                true
+            else
+                false
+            end
+        else
+            false
+        end
     end
 
     def list_trails
@@ -56,9 +75,7 @@ class HikingProjectCli::CLI
         # or
         # list, restart, exit
 
-        valid_inputs = HikingProjectCli::Trail.all.each.with_index(1).map {|trail, index|
-            index.to_s
-        }
+        valid_inputs = HikingProjectCli::Trail.all.each.with_index(1).map {|trail, index| index.to_s}
         valid_inputs = valid_inputs.concat ["restart", "list", "exit"]
 
         puts "Enter the number of the trail you would like more information on, list to relist, restart, or exit."
@@ -93,5 +110,6 @@ class HikingProjectCli::CLI
 
     def goodbye
         puts "Thank you for using the Hiking Project CLI"
+        exit!
     end
 end
