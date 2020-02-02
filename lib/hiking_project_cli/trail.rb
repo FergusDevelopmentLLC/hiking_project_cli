@@ -24,4 +24,7 @@ class HikingProjectCli::Trail
       @@all
     end
 
+    def self.clear
+        @@all = Array.new
+    end
   end

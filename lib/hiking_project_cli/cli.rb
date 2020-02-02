@@ -17,7 +17,7 @@ class HikingProjectCli::CLI
             coord_input = gets.strip
         end
         
-        #lat,lng
+        HikingProjectCli::Trail.clear()
         list_trails(coord_input)
     end
 
