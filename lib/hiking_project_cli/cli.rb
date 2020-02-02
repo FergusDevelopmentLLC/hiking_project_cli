@@ -1,6 +1,7 @@
 require "pry"
 class HikingProjectCli::CLI
 
+
     def call
         #welcome message to the user
         puts "Welcome to the Hiking Project CLI"
@@ -17,16 +18,21 @@ class HikingProjectCli::CLI
             coord_input = gets.strip
         end
         
+        @coords = coord_input
+
         HikingProjectCli::Trail.clear()
-        list_trails(coord_input)
+        list_trails
     end
 
-    def list_trails(coords_input)
-        coords_input = coords_input.gsub(" ", "")
-        coords_array = coords_input.split(",")
+    def list_trails
+        @coords = @coords.gsub(" ", "")
+        coords_array = @coords.split(",")
         coords_qs = "lat=#{coords_array[0]}&lon=#{coords_array[1]}"
-        trail_hashes_from_api = HikingProjectCli::Scraper.get_trails_from_api(coords_qs)
-        trails = HikingProjectCli::Trail.create_from_collection(trail_hashes_from_api)
+        
+        if HikingProjectCli::Trail.all.length == 0
+            trail_hashes_from_api = HikingProjectCli::Scraper.get_trails_from_api(coords_qs)
+            trails = HikingProjectCli::Trail.create_from_collection(trail_hashes_from_api)
+        end
         
         puts "Trails for latitude: #{coords_array[0]} longitude: #{coords_array[1]}"
         puts "-----------------------------------------------"
