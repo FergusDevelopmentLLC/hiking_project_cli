@@ -30,9 +30,13 @@ class HikingProjectCli::CLI
         
         puts "Trails for latitude: x longitude: y"
         puts "-----------------------------------------------"
-        HikingProjectCli::Trail.all.each.with_index(1) {|trail, index|
-            puts "#{index} - #{trail.print_summary}"
-        }
+        if(HikingProjectCli::Trail.all.length > 0)
+            HikingProjectCli::Trail.all.each.with_index(1) {|trail, index|
+                puts "#{index} - #{trail.print_summary}"
+            }
+        else
+            puts "No trails found for those coordinates."
+        end
         puts "-----------------------------------------------"
         
         menu

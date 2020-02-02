@@ -8,7 +8,7 @@ class HikingProjectCli::Scraper
     def self.get_trails_from_api(coords)
         #returns an array of trail hashes
         #fullcoords = "lat=40.0274&lon=-105.2519"
-        coords = "lat=28.539358&lon=-81.398444"
+        #coords = "lat=28.539358&lon=-81.398444"
         url = "https://www.hikingproject.com/data/get-trails?#{coords}&maxDistance=10&key=#{ENV['HIKINGPROJECT_API_KEY']}"
         uri = URI(url)
         response = Net::HTTP.get(uri)
