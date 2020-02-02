@@ -1,46 +1,40 @@
 # HikingProjectCli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hiking_project_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
+This CLI application will provide a list of hiking trails and details for an latitide, longitide of interest. It is based on the Hiking Project DATA API https://www.hikingproject.com/data 
 
-TODO: Delete this and the text above, and describe your gem
+It returns data publicly available pages on the Hiking Project site: https://www.hikingproject.com/
 
 ## Installation
 
-Need to have an .env file in root with the following
-HIKINGPROJECT_API_KEY=XXX
-following pattern here with dotenv: https://github.com/Gingertonic/london-spas-cli/blob/master/lib/london_spas/api.rb
-or
-set it at terminal
-$ export HIKINGPROJECT_API_KEY=XXX
-https://www.rubyguides.com/2019/01/ruby-environment-variables/
+NOTE: you need to have a Hiking Project private key in order for this CLI to work.
 
-Add this line to your application's Gemfile:
+1. Visit: https://www.hikingproject.com/ sign up for an account or contact me for a key: will.carter@fergusllc.com or find me on the Learn.co slack (Will Carter)
 
-```ruby
-gem 'hiking_project_cli'
-```
+2. Visit https://www.hikingproject.com/data to see your key, copy it
 
-And then execute:
+---
 
-    $ bundle install
+$ git clone git@github.com:FergusDevelopmentLLC/hiking_project_cli.git
 
-Or install it yourself as:
+$ cd hiking_project_cli/
 
-    $ gem install hiking_project_cli
+$ bundle install
+
+$ touch .env
+
+$ echo "HIKINGPROJECT_API_KEY=KEY_COPIED_FROM ABOVE" >> .env
+
+$ sudo chmod +x bin/hiking_project_cli
+
+$ ./bin/hiking_project_cli
 
 ## Usage
 
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Follow the instructions in the program prompts.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hiking_project_cli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/hiking_project_cli/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/FergusDevelopmentLLC/hiking_project_cli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/FergusDevelopmentLLC/hiking_project_cli/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
