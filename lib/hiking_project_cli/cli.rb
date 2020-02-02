@@ -6,14 +6,28 @@ class HikingProjectCli::CLI
         #welcome message to the user
         puts "Welcome to the Hiking Project CLI"
         puts "---------------------------------"
-        # puts "Orlando: 28.533819, -81.316097"
-        # puts "only 3: 28.539358, -81.39"
+        puts "Hiking Project API: https://www.hikingproject.com/data"
+        puts "Find hiking trails based on a latitude, longitude."
+        puts ""
+        puts "To find your coordinates:"
+        puts "1. On your computer, open Google Maps (https://www.google.com/maps)."
+        puts "2. Right-click the place or area on the map."
+        puts "3. Select What's here?"
+        puts "4. At the bottom, you’ll see a card with the coordinates."
+        puts "5. Copy and paste those coordinates below."
+        puts ""
+        puts "Here are some example coordinates:"
+        puts "Denver, CO: 39.74, -104.96"
+        puts "Chicago, IL: 41.83, -87.64"
+        puts "New York, NY: 40.73, -73.99"
+        puts "San Francisco, CA: 37.75, -122.44"
+        puts ""
         get_coordinates
     end
 
     def get_coordinates
         #get coordinates from user
-        puts "Please enter your latitude, longitude"
+        puts "Please enter your latitude, longitude:"
 
         coord_input = "" 
         while coord_input == "" || HikingProjectCli::CLI.is_coord_valid(coord_input) == false
@@ -109,6 +123,7 @@ class HikingProjectCli::CLI
     end
 
     def goodbye
+        puts "-----------------------------------------------"
         puts "Thank you for using the Hiking Project CLI"
         exit!
     end
