@@ -20,6 +20,8 @@ Set your environment variable for the API key...
 
 $ export HIKINGPROJECT_API_KEY=KEY_COPIED_FROM ABOVE
 
+$ bundle install
+
 $ hiking_project_cli
 
 ## Usage
