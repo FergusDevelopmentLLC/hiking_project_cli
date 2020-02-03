@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/hiking_project_cli'
+require 'bundler/setup'
+require 'hiking_project_cli'
 
 HikingProjectCli::CLI.new.call
