@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hiking_project_cli (0.1.1)
+    hiking_project_cli (0.1.2)
       json
       nokogiri
 
