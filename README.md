@@ -14,19 +14,11 @@ NOTE: you need to have a Hiking Project private key in order for this CLI to wor
 
 ---
 
-$ git clone git@github.com:FergusDevelopmentLLC/hiking_project_cli.git
+$ gem install hiking_project_cli
 
-$ cd hiking_project_cli/
+Set your environment variable for the API key...
 
-$ bundle install
-
-$ touch .env
-
-$ echo "HIKINGPROJECT_API_KEY=KEY_COPIED_FROM ABOVE" >> .env
-
-$ sudo chmod +x bin/hiking_project_cli
-
-$ ./bin/hiking_project_cli
+$ export HIKINGPROJECT_API_KEY=KEY_COPIED_FROM ABOVE
 
 ## Usage
 
