@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    hiking_project_cli (0.1.2)
+    hiking_project_cli (0.1.3)
+      dotenv
       json
       nokogiri
 
@@ -39,7 +40,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 2.0)
-  dotenv
   hiking_project_cli!
   pry
   rake (~> 12.0)
