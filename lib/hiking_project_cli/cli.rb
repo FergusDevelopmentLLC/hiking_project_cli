@@ -64,7 +64,7 @@ class HikingProjectCli::CLI
         
         if HikingProjectCli::Trail.all.length == 0
             trail_hashes_from_api = HikingProjectCli::Scraper.get_trails_from_api(coords_qs)
-            trails = HikingProjectCli::Trail.create_from_collection(trail_hashes_from_api)
+            HikingProjectCli::Trail.create_from_collection(trail_hashes_from_api)
         end
         
         puts "Trails for latitude: #{coords_array[0]} longitude: #{coords_array[1]}"
