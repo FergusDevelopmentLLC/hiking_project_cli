@@ -49,6 +49,8 @@ class HikingProjectCli::CLI
             #split coord_input into array
             coord_input = coord_input.gsub(" ", "")
             coord_input_array = coord_input.split(",")
+            
+            #source of usa bounding box coords: https://gist.github.com/graydon/11198540
             if(coord_input_array[0].to_f.between?(18.91619, 71.3577635769) && coord_input_array[1].to_f.between?(-171.791110603, -66.96466)) 
                 true
             else
