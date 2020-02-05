@@ -52,17 +52,24 @@ class HikingProjectCli::Trail
         puts "Condition Details: #{self.conditionDetails}" unless self.conditionDetails == nil
         puts "Condition Date: #{self.conditionDate}" unless (self.conditionDate == nil || self.conditionDate == "1970-01-01 00:00:00")
         
-        puts "" unless (self.features == nil || self.features == "-none-")
-        puts "Features:" unless (self.features == nil || self.features == "-none-")
-        puts "#{self.features}" unless (self.features == nil || self.features == "-none-")
+        if(self.features != nil && self.features != "-none-")
+            puts ""
+            puts "Features:"
+            puts "#{self.features}"
+        end
 
-        puts "" unless self.overview == nil
-        puts "Overview:" unless self.overview == nil
-        puts "#{self.overview}" unless self.overview == nil
+        if(self.overview != nil)
+            puts ""
+            puts "Overview:"
+            puts "#{self.overview}"
+        end
         
-        puts "" unless self.description == nil
-        puts "Description:" unless self.description == nil
-        puts "#{self.description}" unless self.description == nil
+        if(self.description != nil)
+            puts ""
+            puts "Description:"
+            puts "#{self.description}"
+        end
+        
         puts ""
         puts "-----------------------------------------------"
     end
