@@ -38,7 +38,9 @@ class HikingProjectCli::CLI
         
         @coords = coord_input
 
+        #they could be restarting, clear the trails array
         HikingProjectCli::Trail.clear()
+        
         list_trails
     end
 
